@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/style.css">
+  <title>ampliación de js</title>
+</head>
+<body>
+  <div class="container">
+
+		<ul id="tabs">
+			<li class="tab">Bills</li>
+			<li class="tab">Create</li>
+			<li class="tab">Export</li>
+		</ul>
+      
+			
+
+			<!--Bills panel-->	
+			<div class="panel">
+				<h2>Bills Table</h2>
+				<button>Delete</button>
+				<button>Edit</button>
+				<input type="search" placeholder="Search bill">
+				<div></div>
+			</div>
+
+
+			<!--Create tab-->
+			<div class="panel">
+				<h2>Create Bill</h2>
+				<button id="add-row">Add Row</button>
+				<div id="bills-form">
+					<label for="name">Name</label>
+					<input type="text" id="name">
+					<label for="date">Date</label>
+					<input type="date" id="date">
+					<label for="email">Email</label>
+					<input type="email" id="email" >
+					<p>Total</p>
+					<span id="total"></span>
+				</div>
+				<div id="rows-form"></div>
+				<button id="reset">Reset</button>
+				<button id="save">Save</button>
+			</div>
+
+
+			<!--Export tab-->
+			<div class="panel">
+				<h2>Export Bills</h2>
+				<button>Export CSV</button>
+				<button>Export JSON</button>
+				<div></div>
+				<div></div>
+			</div>
+	</div>
+	<script src="js/singleton.js"></script>
+	<script src="js/tabs.js"></script>
+	<script src="js/createTab/form.js"></script>
+	<script src="js/createTab/addRow.js"></script>
+</body>
+</html>

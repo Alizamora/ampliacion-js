@@ -1,0 +1,46 @@
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  color:gainsboro;
+  list-style: none;
+}
+
+.panels {
+  position: relative;
+  z-index: 10;
+}
+  
+.panel {
+  left: -2000px;
+  position: absolute;
+}
+
+.panel.active {
+  position: relative;
+  left: 0;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 3/7;
+  justify-items: center;
+}
+
+.tab {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+  width: 50%;
+  cursor: pointer;
+}
+.tab:active {
+  background-color: #eee;
+}
