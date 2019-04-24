@@ -7,8 +7,8 @@
       let i = tabs.indexOf(e.target);
       tabs.map( tab => tab.classList.remove('active'));
       tabs[i].classList.add('active');
-      panels.map( panel => panel.classList.remove('active'));
-      panels[i].classList.add('active');
+      RM.changeTab(i);
     }
-  })
+  });
+  panels[0].classList.add('active');
 })(document);

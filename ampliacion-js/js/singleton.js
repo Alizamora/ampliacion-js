@@ -1,4 +1,4 @@
-const singleton = (function() {
+const s = new (function() {
 	const localBills = localStorage.getItem('bills');
   let instance = null;
   return class Singleton{
@@ -8,5 +8,3 @@ const singleton = (function() {
     }
   }
 }());
-
-const s = new singleton();
