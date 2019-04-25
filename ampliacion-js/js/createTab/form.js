@@ -9,10 +9,11 @@
 	const rows = document.getElementById('rows-form');
 
 	function resetInputs() {
-		let inputs = form.parentElement.querySelectorAll('input[type="text"], input[type="number"]');
+		let inputs = form.parentElement.querySelectorAll('input[type="text"], input[type="number"], input[type="date"], input[type="email"]');
 		inputs.forEach((input) => {
 			input.value = '';
-		})
+		});
+		total.innerText = '';
 	}
 
 	function saveForm() {
@@ -23,10 +24,9 @@
 			total: total.innerText,
 			rows: []
 		};
-		console.log(newBill);
 
 		let children = rows.querySelectorAll('div');
-		children.forEach((child, i) => {
+		children.forEach((child) => {
 			let obj = {
 				description: child.querySelectorAll('input')[0].value,
 				quantity: child.querySelectorAll('input')[1].value,
@@ -35,11 +35,13 @@
 			newBill.rows.push(obj);
 		});
 		s.bills.push(newBill);
-		localStorage.setItem('bills', JSON.stringify(s.bills));
 	}
 
 	M.subscribe('reset', resetInputs);
 	M.subscribe('save', saveForm);
+	M.subscribe('save', resetInputs);
+	M.subscribe('save', RM.updateLocalStorage);
+	M.subscribe('save', RM.change(0).tab);
 
 	reset.addEventListener('click', M.publish('reset').topic);
 	save.addEventListener('click', M.publish('save').topic);

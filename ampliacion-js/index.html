@@ -17,39 +17,42 @@
 			<li class="tab">Export</li>
 		</ul>
 
-
-
 		<!--Bills panel-->
 		<div class="panel">
 			<h2>Bills Table</h2>
-			<button>Delete</button>
-			<button>Edit</button>
-			<input type="search" placeholder="Search bill">
+			<div hide id="editDelete">
+				<button>Delete</button>
+				<button>Edit</button>
+			</div>
+			<input type="search" placeholder="Search bill" id="search">
 			<div id="billTable">
-				<ul>
+				<ul class="list">
 					<li>Name</li>
 					<li>Date</li>
 					<li>Total</li>
 				</ul>
 				<div id="tableList"></div>
 				<div class="pagination">
-					<p>Page: <span>1</span> of <span>10</span></p>
-					<label for="itemsPerPage">Items per Page</label>
-					<select name="" id="itemsPerPage">
+					<button id="previousPage"><</button>
+					<p class="pageNumber">Page: <span>1</span> of <span>10</span></p>
+					<button id="nextPage">></button>
+
+					<label  id="items" for="itemsPerPage">Items per Page</label>
+					<select name="items" id="itemsPerPage">
 						<option value="5">5</option>
 						<option value="10">10</option>
 						<option value="20">20</option>
 					</select>
-					<button id="previosPage"></button>
-					<button id="nextPage"></button>
+					
+					
 				</div>
 				
 				<!--Modal od Delete-->
 				<div class="modal">
 					<h2>Delete Bill</h2>
 					<p>are you sure you want to delete the bill:</p>
-					<span id="billName"></span>
-					<span id="billTotal"></span>
+					<span id="modalName"></span>
+					<span id="modalTotal"></span>
 					<p>This action will remove the bill permanently</p>
 					<button id="cancel">Cancel</button>
 					<button id="delete">Delete</button>
@@ -57,10 +60,9 @@
 			</div>
 		</div>
 
-
 		<!--Create tab-->
 		<div class="panel">
-			<h2>Create Bill</h2>
+			<h2 id="change-title">Create Bill</h2>
 			<button id="add-row">Add Row</button>
 			<div id="bills-form">
 				<label for="name">Name</label>
@@ -74,17 +76,17 @@
 			</div>
 			<div id="rows-form"></div>
 			<button id="reset">Reset</button>
-			<input type="submit" value="save" id="save">
+			<input type="submit" value="Save" id="save">
+			<input type="submit" value="Edit" id="saveEdit">
 		</div>
 
-
 		<!--Export tab-->
-		<div class="panel">
-			<h2>Export Bills</h2>
-			<button>Export CSV</button>
-			<button>Export JSON</button>
-			<div></div>
-			<div></div>
+		<div class="panel panelExport">
+			<h2 class="titleExport">Export Bills</h2>
+			<button class="export" id="exportCSV">Export CSV</button>
+			<button class="export" id="exportJSON">Export JSON</button>
+			<div class="dragAndDrop"></div>
+			<div class="dragAndDrop"></div>
 		</div>
 	</div>
 	<script src="js/revealingModule.js"></script>
@@ -93,6 +95,14 @@
 	<script src="js/tabs.js"></script>
 	<script src="js/createTab/addRow.js"></script>
 	<script src="js/createTab/form.js"></script>
+	<script src="js/billsTab/edit.js"></script>
+	<script src="js/billsTab/search.js"></script>
+	<script src="js/billsTab/rowsManager.js"></script>
+	<script src="js/billsTab/select.js"></script>
+	<script src="js/billsTab/modalManager.js"></script>
+	<script src="js/billsTab/delete.js"></script>
+	<script src="js/billsTab/prevNextPage.js"></script>
+	<script src="js/billsTab/pagination.js"></script>
 </body>
 
 </html>
