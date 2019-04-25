@@ -7,6 +7,7 @@
 	const save = document.getElementById('save');
 	const form = document.getElementById('bills-form');
 	const rows = document.getElementById('rows-form');
+	let index = 0;
 
 	function resetInputs() {
 		let inputs = form.parentElement.querySelectorAll('input[type="text"], input[type="number"], input[type="date"], input[type="email"]');
@@ -17,7 +18,9 @@
 	}
 
 	function saveForm() {
+		index++;
 		let newBill = {
+			index: index,
 			name: name.value,
 			date: date.value,
 			email: email.value,

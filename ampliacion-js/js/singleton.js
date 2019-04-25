@@ -6,8 +6,8 @@ const s = new (function () {
       this.currentPage = 1;
       this.pagesAmount = null;
       this.bills = localBills ? JSON.parse(localBills) : [];
-      this.export = [];
       this.selectedRow = null;
+      this.export = [];
       return instance? instance : instance = this;
     }
   }

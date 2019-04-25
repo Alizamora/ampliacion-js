@@ -15,9 +15,12 @@
         pagesAmount.innerText = paginationIndex;
         s.pagesAmount = paginationIndex;
     }
+
     setPaginationGroups();
     RM.setHidePages();
-    // M.subscribe('search', setPaginationGroups); 
+
+    M.subscribe('delete', setPaginationGroups);
+    M.subscribe('delete', RM.setHidePages);
     M.subscribe('save', setPaginationGroups);
     M.subscribe('save', RM.searchArray);
     M.subscribe('save', RM.setHidePages);
@@ -28,6 +31,7 @@
     M.subscribe('changeItemsPerPage', setPaginationGroups);
     M.subscribe('changeItemsPerPage', RM.searchArray);
     M.subscribe('changeItemsPerPage', RM.setHidePages);
+    M.subscribe('search', RM.showFound);
 
     itemsPerPage.addEventListener('change', M.publish('changeItemsPerPage').topic);
 }());

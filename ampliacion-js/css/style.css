@@ -4,7 +4,7 @@ body {
   font-family: sans-serif;
 }
 
-li{
+li {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -22,7 +22,7 @@ li[highlight] {
   display: none;
 }
 
-p{
+p {
   text-align: center;
   margin: 0;
   padding: 16px 0;
@@ -34,25 +34,29 @@ ul {
   padding: 0;
   color:gray;
   list-style: none;
+  overflow: auto;
 }
 
-.container{
+.container {
   width: 90%;
   margin: 0 auto;
   margin-top: 50px;
 }
 
-.dragAndDrop{
+.dragAndDrop {
   background-color: #ccc;
-  height: 200px;
-  grid-row: 3;
+  height: 300px;
+  overflow: auto;
+  grid-row: 4;
 }
 
-.export{
+.export {
   grid-row: 2;
 }
 
-.modal{
+
+
+.modal {
   width: 50%;
   height: 350px;
   top: 0;
@@ -81,7 +85,7 @@ ul {
   -o-transform: scale(100);
 }
 
-.list{
+.list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -96,10 +100,10 @@ ul {
   position: absolute;
 }
 
-.panelExport{
+.panelExport {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 20% / 10% / 1fr;
+  grid-template-rows: 20% / 15% / 10% / 1fr;
   grid-gap: 5px;
 }
 
@@ -108,13 +112,13 @@ ul {
   left: 0;
 }
 
-.pagination{
+.pagination {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
-.pageNumber{
+.pageNumber {
   display: inline-block;
   width: 50%;
   grid-column: 2;
@@ -123,8 +127,13 @@ ul {
   padding: 0;
 }
 
-.titleExport{
+.titleExport {
   grid-row: 1;
+}
+
+.titlesExport {
+  margin-bottom: 0;
+  grid-row: 3;
 }
 
 .tab {
@@ -135,23 +144,70 @@ ul {
   width: 80%;
   cursor: pointer;
 }
+
+.dragAndDrop p {
+  background: #eee;
+  margin: 5px 0;
+}
+
+.dragAndDrop p:hover {
+  background: #ddd;
+}
+
 .tab:active {
   background-color: #eee;
 }
 
+#exportInfo {
+  background: #ccc;
+  height: 50%;
+  overflow: auto;
+  text-align: left;
+  white-space: pre;
+}
+
+#exportModal {
+  width: 50%;
+  height: 350px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  margin: auto;
+  background-color: rgb(144, 142, 142);
+  padding: 20px;
+}
+
+#exportModal::before {
+  content: '';
+  position: absolute;
+  background: #ccc8;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: scale(100);
+  -webkit-transform: scale(100);
+  -moz-transform: scale(100);
+  -ms-transform: scale(100);
+  -o-transform: scale(100);
+}
+
 #items,
-#itemsPerPage{
+#itemsPerPage {
   grid-column: 3;
   grid-row: 1;
 }
 
-#itemsPerPage{
+#itemsPerPage {
   width: 20%;
   justify-self: right;
 }
 
 #previousPage,
-#nextPage{
+#nextPage {
   grid-column: 2;
   grid-row: 1;
   width: 10%;
@@ -159,13 +215,15 @@ ul {
 
 }
 
-#nextPage{
+#nextPage {
 justify-self: right;
 }
 
-#tabs{
+#tabs {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-
+#tableList ul {
+  height: 300px;
+}
